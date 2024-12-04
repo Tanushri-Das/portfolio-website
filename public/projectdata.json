@@ -1,0 +1,64 @@
+[
+  {
+    "id": "01",
+    "project_name": "Quick Hire",
+    "home_src": "https://i.ibb.co.com/DkHv2tC/job.jpg",
+    "tech": "React.js, Tailwind Css, Firebase, Typescript, Tanstack Query, Rest Api, Node.js, Express.js, MongoDB.",
+    "short_description": "This is a Job Portal website.",
+    "livesite_href": "https://job-portal-c39ed.web.app/",
+    "cilent_side": "https://github.com/Tanushri-Das/Job-Portal-Client-Side",
+    "server_side": "https://github.com/Tanushri-Das/Job-Portal-Website-Server-Side"
+  },
+  {
+    "id": "02",
+    "project_name": "Sip Coffee",
+    "home_src": "https://i.ibb.co.com/y0t2vqP/coffee.jpg",
+    "tech": "React.js, Tailwind Css, Redux Toolkit, Firebase, Rest Api, NodeJs, Express Js, MongoDB.",
+    "short_description": "This is a Coffee Shop website.",
+    "livesite_href": "https://coffee-shop-8204e.web.app/",
+    "cilent_side": "https://github.com/Tanushri-Das/coffee-shop-client-side",
+    "server_side": "https://github.com/Tanushri-Das/coffee-shop-server-side"
+  },
+  {
+    "id": "03",
+    "project_name": "CarCare",
+    "home_src": "https://i.ibb.co.com/BT4bwFG/car.jpg",
+    "tech": "Next.js, Next Auth, Tailwind Css, Axios, Typescript, Tanstack Query, Rest Api, bcrypt.js, MongoDB.",
+    "short_description": "This is a Car Repairing Website.",
+    "livesite_href": "https://car-repairing-website.vercel.app/",
+    "cilent_side": "https://github.com/Tanushri-Das/Nextjs-Car-Repairing-Website"
+  },
+  {
+    "id": "04",
+    "project_name": "Dental Ease",
+    "home_src": "https://i.ibb.co.com/vZkMJVq/dental.jpg",
+    "tech": "React.js, Tailwind Css, Axios, Jwt, Firebase, Tanstack Query, Rest Api, NodeJs, Express Js, MongoDB .",
+    "short_description": "This is a Dental Clinic website .",
+    "admin_email": "tama73468@gmail.com",
+    "admin_pass": "tama12",
+    "livesite_href": "https://dochouse-7c464.web.app/",
+    "cilent_side": "https://github.com/Tanushri-Das/doc-house-client-side",
+    "server_side": "https://github.com/Tanushri-Das/dental-ease-server-side"
+  },
+  {
+    "id": "05",
+    "project_name": "BookNest",
+    "home_src": "https://i.ibb.co.com/q0t7KLW/book.jpg",
+    "tech": "Next.js, Next Auth, Tailwind Css, Axios, Typescript, Tanstack Query, Rest Api, bcrypt.js, MongoDB.",
+    "short_description": "This is a Book Store website.",
+    "livesite_href": "https://books-store-project-olive.vercel.app/",
+    "cilent_side": "https://github.com/Tanushri-Das/book-store-website"
+  },
+  {
+    "id": "06",
+    "project_name": "Jerin's Parlour",
+    "home_src": "https://i.ibb.co.com/jGVhQrJ/parlour.jpg",
+    "tech": "React.js, Tailwind Css, Axios, Jwt, Firebase, Tanstack Query, Rest Api, NodeJs, Express Js, MongoDB .",
+    "short_description": "This is a Parlour website.",
+    "admin_email": "anik12@gmail.com",
+    "admin_pass": "anik12",
+    "livesite_href": "https://parlour-website-37d65.web.app/",
+    "cilent_side": "https://github.com/Tanushri-Das/parlour-website-client-side",
+    "server_side": "https://github.com/Tanushri-Das/parlour-website-server-side"
+  }
+]
