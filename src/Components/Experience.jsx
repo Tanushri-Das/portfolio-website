@@ -6,6 +6,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { MdWork } from "react-icons/md";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   const { theme } = useContext(ThemeContext);
@@ -15,9 +16,14 @@ const Experience = () => {
 
   return (
     <section id="experience" className="mt-20">
-      <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-10">
+      <motion.h1
+        initial={{ opacity: 0, x: -50 }} // শুরুতে বাম দিকে থাকবে এবং অদৃশ্য থাকবে
+        animate={{ opacity: 1, x: 0 }} // ধীরে ধীরে মূল অবস্থানে এবং দৃশ্যমান হবে
+        transition={{ duration: 0.7, ease: "easeOut" }} // সময় এবং গতিশীলতা
+        className="text-xl md:text-3xl lg:text-4xl font-bold mb-10"
+      >
         Experience
-      </h2>
+      </motion.h1>
       <VerticalTimeline
         lineColor={lineColor} // Use the dynamic line color here
       >
@@ -87,9 +93,11 @@ const Experience = () => {
           <h4 className="vertical-timeline-element-subtitle font-medium text-[16px]">
             GlobFluent VidyaTech Pvt. Ltd. (Remote)
           </h4>
-          <p className={`text-[16px] mt-2 font-normal ${
+          <p
+            className={`text-[16px] mt-2 font-normal ${
               theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
-            }`}>
+            }`}
+          >
             Worked with React.js, Tailwind CSS, Swiper.js, and TypeScript to
             build responsive user interfaces, including sign-in/signup
             functionality with API integration.

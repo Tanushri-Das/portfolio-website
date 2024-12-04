@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { ThemeContext } from "../../ThemeContext/ThemeContext";
 import { FaLink } from "react-icons/fa6";
@@ -8,8 +9,12 @@ const ProjectCard = ({ project }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div
-      className={`p-3 border-2 cursor-pointer hover:scale-105 hover:shadow-lg transition-transform duration-300 rounded-lg border-opacity-20 h-full flex flex-col ${
+    <motion.div
+      initial={{ opacity: 0, y: 20 }} // শুরুতে নিচে এবং অদৃশ্য
+      animate={{ opacity: 1, y: 0 }} // ধীরে ধীরে উপরে উঠে দৃশ্যমান
+      transition={{ duration: 0.6, ease: "easeOut" }} // সময় এবং মসৃণতা
+      whileHover={{ scale: 1.05, boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)" }} // হোভার ইফেক্ট
+      className={`p-3 border-2 cursor-pointer transition-transform duration-300 rounded-lg border-opacity-20 h-full flex flex-col ${
         theme === "dark"
           ? "border-gray-700 bg-gray-800"
           : "border-gray-300 bg-white"
@@ -50,18 +55,28 @@ const ProjectCard = ({ project }) => {
 
       {/* GitHub and Link Icons positioned at the bottom of the card */}
       <div className="flex justify-center gap-x-6 items-center">
-        <button>
+        <motion.button
+          whileHover={{ scale: 1.1, color: "#0ea5e9" }} // হোভার স্টাইল
+        >
           <Link to={project.livesite_href} target="_blank">
-            <FaLink size={28} className="hover:text-sky-400 transform hover:scale-110 transition-transform duration-300 ease-in-out"/>
+            <FaLink
+              size={28}
+              className="transform transition-transform duration-300 ease-in-out"
+            />
           </Link>
-        </button>
-        <button>
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1, color: "#0ea5e9" }} // হোভার স্টাইল
+        >
           <Link to={project.cilent_side} target="_blank">
-            <FaGithub size={30} className="hover:text-sky-400 transform hover:scale-110 transition-transform duration-300 ease-in-out"/>
+            <FaGithub
+              size={30}
+              className="transform transition-transform duration-300 ease-in-out"
+            />
           </Link>
-        </button>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

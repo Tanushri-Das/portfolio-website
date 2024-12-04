@@ -1,16 +1,29 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
-import picture from "../assets/Tanu.jpg";
+import tanu from "../assets/hero.jpg";
+import { motion } from "framer-motion";
 
 const About = () => {
   const { theme } = useContext(ThemeContext);
+
   return (
     <section id="about" className="mt-20">
-      <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mb-10">
+      <motion.h1
+        initial={{ opacity: 0, x: -50 }} // শুরুতে বাম দিকে থাকবে এবং অদৃশ্য থাকবে
+        animate={{ opacity: 1, x: 0 }} // ধীরে ধীরে মূল অবস্থানে এবং দৃশ্যমান হবে
+        transition={{ duration: 0.7, ease: "easeOut" }} // সময় এবং গতিশীলতা
+        className="text-xl md:text-3xl lg:text-4xl font-bold mb-10"
+      >
         About Me
-      </h1>
+      </motion.h1>
       <div className="flex flex-col lg:flex-row gap-16">
-        <div className="w-full lg:w-2/3 flex flex-col gap-4 order-2 lg:order-none">
+        {/* Left div with animation */}
+        <motion.div
+          className="w-full lg:w-2/3 flex flex-col gap-4 order-2 lg:order-none"
+          initial={{ x: "-100vw", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50, duration: 1 }}
+        >
           <p
             className={`text-lg font-normal ${
               theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
@@ -56,16 +69,23 @@ const About = () => {
             talented teams to build solutions that leave a lasting impact on
             users and businesses alike.
           </p>
-        </div>
-        <div className="w-full lg:w-1/3 flex justify-center items-center order-1 lg:order-none">
+        </motion.div>
+
+        {/* Right div with animation */}
+        <motion.div
+          className="w-full lg:w-1/3 flex justify-center items-center order-1 lg:order-none"
+          initial={{ x: "100vw", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50, duration: 1 }}
+        >
           <div className="border-4 border-gray-200 rounded-full p-2">
             <img
-              src={picture}
+              src={tanu}
               alt="profile"
               className="object-cover rounded-full w-80 h-80"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

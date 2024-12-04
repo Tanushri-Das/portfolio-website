@@ -3,15 +3,21 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [phoneNumber, setPhoneNumber] = useState("+880");
 
   return (
-    <section id="contact" className="bg-black md:px-10 rounded-xl">
+    <section id="contact" className="bg-black px-3 md:px-10 rounded-xl">
       <div className="flex flex-col xl:flex-row gap-12 py-12">
         {/* Form Section */}
-        <div className="w-full md:w-3/4 md:mx-auto xl:w-1/2">
+        <motion.div
+          initial={{ x: "-100vw", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50, duration: 1 }}
+          className="w-full md:w-3/4 md:mx-auto xl:w-1/2"
+        >
           <form
             action="https://getform.io/f/c2f8bf3b-ca10-4a4c-a5d0-60cd3a0f1053"
             method="POST"
@@ -61,10 +67,15 @@ const Contact = () => {
               </button>
             </div>
           </form>
-        </div>
+        </motion.div>
 
         {/* Contact Info Section */}
-        <div className="flex flex-col xl:justify-center space-y-6 mt-8 xl:mt-0 w-full md:w-3/4 md:mx-auto xl:w-1/2">
+        <motion.div
+          initial={{ x: "100vw", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50, duration: 1 }}
+          className="flex flex-col xl:justify-center space-y-6 mt-8 xl:mt-0 w-full md:w-3/4 md:mx-auto xl:w-1/2"
+        >
           {/* Phone */}
           <div className="flex items-center space-x-4">
             <button className="flex items-center justify-center bg-gradient-to-b from-sky-500 to-blue-900 w-12 h-12 rounded-full">
@@ -101,7 +112,7 @@ const Contact = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

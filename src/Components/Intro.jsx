@@ -4,19 +4,35 @@ import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
+import { motion } from "framer-motion";
 
 const Intro = () => {
   const { theme } = useContext(ThemeContext);
+  const fadeIn = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     <div className="w-full lg:w-2/3 mt-20">
-      <h1 className="text-lg font-normal">👋 Hi, this is</h1>
-      <h2
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1>👋 Hi, this is</h1>
+      </motion.div>
+      <motion.h2
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className={`text-4xl md:text-6xl font-bold mt-3 mb-4 ${
-          theme === "dark" ? "text-white" : " text-black"
+          theme === "dark" ? "text-white" : "text-black"
         }`}
       >
         Tanushri Das
-      </h2>
+      </motion.h2>
+
       <h2
         className={`text-xl font-medium mb-4 ${
           theme === "dark" ? "text-white" : " text-black"
@@ -37,14 +53,19 @@ const Intro = () => {
           delaySpeed={1000}
         />
       </h2>
-      <p
-        className={`text-lg font-normal mb-5 ${
-          theme === "dark" ? "text-[#c7c7c7]" : " text-[#737373]"
-        }`}
-      >
-        I completed my graduation B.Sc in CSE. I have a strong foundation in
-        front-end development and am skilled in creating user-friendly and
-        responsive web applications using React.js, Next.js and its ecosystem.
+      <p>
+        <motion.p
+          initial={{ opacity: 0, y: 50 }} // নিচ থেকে শুরু
+          animate={{ opacity: 1, y: 0 }} // ধীরে ধীরে উপরে
+          transition={{ duration: 0.8, ease: "easeOut" }} // সময় এবং গতিশীলতা
+          className={`text-lg font-normal mb-5 ${
+            theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
+          }`}
+        >
+          I completed my graduation B.Sc in CSE. I have a strong foundation in
+          front-end development and am skilled in creating user-friendly and
+          responsive web applications using React.js, Next.js and its ecosystem.
+        </motion.p>
       </p>
       <div className="flex items-center gap-x-5">
         <Link
@@ -53,8 +74,10 @@ const Intro = () => {
         >
           <button
             type="button"
-            className={`px-6 py-2 text-lg font-semibold border border-gray-200 hover:cursor-pointer transition-all duration-300 rounded-lg text-nowrap ${
-              theme === "dark" ? "text-white" : " text-black"
+            className={`px-6 py-2 text-lg font-semibold border transition-all duration-300 rounded-lg text-nowrap transform ${
+              theme === "dark"
+                ? "text-white border-gray-200 bg-gray-800 hover:bg-gradient-to-b from-sky-500 to-blue-900 hover:border-none hover:outline-none"
+                : "text-black border-gray-300 bg-white hover:bg-gradient-to-b from-sky-500 to-blue-900 hover:border-none hover:text-white"
             }`}
           >
             Open Resume
