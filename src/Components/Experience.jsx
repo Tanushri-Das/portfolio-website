@@ -14,7 +14,7 @@ const Experience = () => {
   const lineColor = theme === "dark" ? "#fff" : "rgb(71 85 105)"; // slate-700 in light theme, white in dark
 
   return (
-    <section id="experience" className="mt-12">
+    <section id="experience" className="mt-20">
       <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-10">
         Experience
       </h2>
@@ -49,7 +49,11 @@ const Experience = () => {
           <h4 className="vertical-timeline-element-subtitle font-medium text-[16px]">
             Salesqueen Software Solutions (Remote)
           </h4>
-          <p className="text-lg mt-2">
+          <p
+            className={`text-[16px] mt-2 font-normal ${
+              theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
+            }`}
+          >
             Implemented frontend designs using HTML, CSS, JavaScript, and
             Bootstrap, enhancing user experience and improving site performance.
           </p>
@@ -83,7 +87,9 @@ const Experience = () => {
           <h4 className="vertical-timeline-element-subtitle font-medium text-[16px]">
             GlobFluent VidyaTech Pvt. Ltd. (Remote)
           </h4>
-          <p className="text-lg mt-2">
+          <p className={`text-[16px] mt-2 font-normal ${
+              theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
+            }`}>
             Worked with React.js, Tailwind CSS, Swiper.js, and TypeScript to
             build responsive user interfaces, including sign-in/signup
             functionality with API integration.

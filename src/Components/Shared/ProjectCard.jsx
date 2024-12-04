@@ -52,12 +52,12 @@ const ProjectCard = ({ project }) => {
       <div className="flex justify-center gap-x-6 items-center">
         <button>
           <Link to={project.livesite_href} target="_blank">
-            <FaLink size={28} />
+            <FaLink size={28} className="hover:text-sky-400 transform hover:scale-110 transition-transform duration-300 ease-in-out"/>
           </Link>
         </button>
         <button>
           <Link to={project.cilent_side} target="_blank">
-            <FaGithub size={30} />
+            <FaGithub size={30} className="hover:text-sky-400 transform hover:scale-110 transition-transform duration-300 ease-in-out"/>
           </Link>
         </button>
       </div>

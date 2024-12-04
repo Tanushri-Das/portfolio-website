@@ -5,7 +5,7 @@ import picture from "../assets/Tanu.jpg";
 const About = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <section id="about" className="mt-12">
+    <section id="about" className="mt-20">
       <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mb-10">
         About Me
       </h1>

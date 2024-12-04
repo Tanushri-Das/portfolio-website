@@ -87,7 +87,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="my-12">
+    <section id="skills" className="my-20">
       <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-10">
         Skills
       </h2>

@@ -8,10 +8,10 @@ import { TfiEmail } from "react-icons/tfi";
 const Intro = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <div className="w-full lg:w-2/3 my-20">
+    <div className="w-full lg:w-2/3 mt-20">
       <h1 className="text-lg font-normal">👋 Hi, this is</h1>
       <h2
-        className={`text-xl md:text-6xl font-bold mt-3 mb-4 ${
+        className={`text-4xl md:text-6xl font-bold mt-3 mb-4 ${
           theme === "dark" ? "text-white" : " text-black"
         }`}
       >
@@ -53,7 +53,7 @@ const Intro = () => {
         >
           <button
             type="button"
-            className={`px-6 py-2 text-lg font-semibold border border-gray-200 hover:cursor-pointer transition-all duration-300 rounded-lg ${
+            className={`px-6 py-2 text-lg font-semibold border border-gray-200 hover:cursor-pointer transition-all duration-300 rounded-lg text-nowrap ${
               theme === "dark" ? "text-white" : " text-black"
             }`}
           >
@@ -62,18 +62,18 @@ const Intro = () => {
         </Link>
         <div className="flex space-x-3">
           <Link to="mailto:dastanushri402@gmail.com">
-            <button className="flex justify-center items-center border border-gray-300 rounded-full w-10 h-10">
-              <TfiEmail className="text-lg" />
+            <button className="flex justify-center items-center border border-gray-300 rounded-full w-10 h-10 hover:border-sky-400 transition-all duration-300 ease-in-out">
+              <TfiEmail className="text-lg hover:text-sky-400 transform hover:scale-110 transition-transform duration-300 ease-in-out" />
             </button>
           </Link>
-          <Link to="https://www.linkedin.com/in/tanushri-das/">
-            <button className="flex justify-center items-center border border-gray-300 rounded-full w-10 h-10">
-              <FaLinkedinIn className="text-lg" />
+          <Link to="https://www.linkedin.com/in/tanushri-das/" target="_blank">
+            <button className="flex justify-center items-center border border-gray-300 rounded-full w-10 h-10 hover:border-sky-400 transition-all duration-300 ease-in-out">
+              <FaLinkedinIn className="text-lg hover:text-sky-400 transform hover:scale-110 transition-transform duration-300 ease-in-out" />
             </button>
           </Link>
-          <Link to="https://github.com/Tanushri-Das">
-            <button className="flex justify-center items-center border border-gray-300 rounded-full w-10 h-10">
-              <FaGithub className="text-lg" />
+          <Link to="https://github.com/Tanushri-Das" target="_blank">
+            <button className="flex justify-center items-center border border-gray-300 rounded-full w-10 h-10 hover:border-sky-400 transition-all duration-300 ease-in-out">
+              <FaGithub className="text-lg hover:text-sky-400 transform hover:scale-110 transition-transform duration-300 ease-in-out" />
             </button>
           </Link>
         </div>

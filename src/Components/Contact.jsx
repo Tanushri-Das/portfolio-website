@@ -1,13 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 
 const Contact = () => {
   const [phoneNumber, setPhoneNumber] = useState("+880");
-  const { theme } = useContext(ThemeContext);
 
   return (
     <section id="contact" className="bg-black md:px-10 rounded-xl">
@@ -50,7 +48,7 @@ const Contact = () => {
             <textarea
               name="message"
               rows="5"
-              className="border text-black border-gray-300 rounded-md w-full px-3 py-2 outline-none"
+              className="h-24 border text-black border-gray-300 rounded-md w-full px-3 py-2 outline-none"
               placeholder="Enter your message"
               required
             ></textarea>
@@ -73,13 +71,7 @@ const Contact = () => {
               <FaPhone className="text-white text-xl" />
             </button>
             <div>
-              <h2
-                className={`text-sm font-normal ${
-                  theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
-                }`}
-              >
-                Phone
-              </h2>
+              <h2 className="text-sm font-normal text-[#c7c7c7]">Phone</h2>
               <p className="text-[16px] text-white">+880164647948</p>
             </div>
           </div>
@@ -90,13 +82,7 @@ const Contact = () => {
               <FaEnvelope className="text-white text-xl" />
             </button>
             <div>
-              <h2
-                className={`text-sm font-normal ${
-                  theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
-                }`}
-              >
-                Email
-              </h2>
+              <h2 className="text-sm font-normal text-[#c7c7c7]">Email</h2>
               <p className="text-[16px] text-white">
                 dastanushri402@example.com
               </p>
@@ -109,13 +95,7 @@ const Contact = () => {
               <FaMapMarkerAlt className="text-white text-xl" />
             </button>
             <div>
-              <h2
-                className={`text-sm font-normal ${
-                  theme === "dark" ? "text-[#c7c7c7]" : "text-[#737373]"
-                }`}
-              >
-                Address
-              </h2>
+              <h2 className="text-sm font-normal text-[#c7c7c7]">Address</h2>
               <p className="text-[16px] text-white">
                 Banasree, Dhaka, Bangladesh
               </p>

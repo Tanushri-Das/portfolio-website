@@ -10,7 +10,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="mt-12">
+    <section id="projects" className="mt-20">
       <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-10">
         Projects
       </h2>

@@ -1,174 +1,152 @@
-<div className="w-full flex-shrink-0 sm:max-w-2xl bg-base-100 mx-auto">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 bg-white p-6 rounded-md shadow-lg"
+<header className="fixed top-0 w-full z-50 bg-white/90 dark:bg-slate-900/90 shadow-md backdrop-blur-md">
+  <div className="w-[90%] mx-auto py-4 flex items-center justify-between">
+    {/* Left: Logo */}
+    <div className="text-lg font-bold md:flex-grow-0">
+      <Link to="/">
+        <div className="flex justify-center items-center space-x-2">
+          <div
+            className={`w-[60px] h-[60px] hidden md:block rounded-full overflow-hidden ${
+              theme === "light" ? "border-2 border-black" : "bg-transparent"
+            }`}
           >
-            <h1 className="text-black text-center text-4xl mb-6 font-bold">
-              Sign Up
-            </h1>
-            {/* First and Last Name */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
-                <label className="block text-black text-lg font-semibold mb-1">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  {...register("firstname", {
-                    required: "First Name is required",
-                  })}
-                  className="border text-black border-gray-300 rounded-md w-full px-3 py-2 outline-none"
-                />
-                {errors.firstname && (
-                  <span className="text-red-600 mt-1">
-                    {errors.firstname.message}
-                  </span>
-                )}
-              </div>
-              <div className="flex-1">
-                <label className="block text-black text-lg font-semibold mb-1">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  {...register("lastname", {
-                    required: "Last Name is required",
-                  })}
-                  className="border text-black border-gray-300 rounded-md w-full px-3 py-2 outline-none"
-                />
-                {errors.lastname && (
-                  <span className="text-red-600 mt-1">
-                    {errors.lastname.message}
-                  </span>
-                )}
-              </div>
-            </div>
-            {/* Email and Phone Number */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
-                <label className="block text-black text-lg font-semibold mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  {...register("email", {
-                    required: "Email Address is required",
-                    pattern: {
-                      value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-                      message: "Please enter a valid email address",
-                    },
-                  })}
-                  className="border text-black border-gray-300 rounded-md w-full p-3 outline-none"
-                />
-                {errors.email && (
-                  <span className="text-red-600 mt-1">
-                    {errors.email.message}
-                  </span>
-                )}
-              </div>
-              <div className="flex-1">
-                <label className="block text-black text-lg font-semibold mb-1">
-                  Phone Number
-                </label>
-                <PhoneInput
-                  country="bd"
-                  value={phoneNumber}
-                  onChange={setPhoneNumber}
-                  inputProps={{
-                    className:
-                      "border text-black border-gray-300 rounded-md w-full ps-12 py-3 outline-none",
-                  }}
-                />
-              </div>
-            </div>
-            {/* Image Upload */}
-            <div>
-              <label className="block text-black text-lg font-semibold mb-1">
-                Photo Upload
-              </label>
-              <input
-                type="file"
-                id="imageInput"
-                className="border text-black border-gray-300 rounded-md w-full p-3 outline-none"
-              />
-            </div>
-            {/* Password and Confirm Password */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
-                <label className="block text-black text-lg font-semibold mb-1">
-                  Password
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    {...register("password", {
-                      required: "Password is required",
-                      minLength: {
-                        value: 6,
-                        message: "Password must be at least 6 characters",
-                      },
-                    })}
-                    className="border text-black border-gray-300 rounded-lg w-full p-3 outline-none"
-                  />
-                  <span
-                    className="absolute text-black right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </span>
-                </div>
-                {errors.password && (
-                  <span className="text-red-600 mt-1">
-                    {errors.password.message}
-                  </span>
-                )}
-              </div>
-              <div className="flex-1">
-                <label className="block text-black text-lg font-semibold mb-1">
-                  Confirm Password
-                </label>
-                <div className="relative">
-                  <input
-                    type={showConfirmPassword ? "text" : "password"}
-                    placeholder="Confirm Password"
-                    {...register("confirmPassword", {
-                      required: "Confirm Password is required",
-                      validate: (value) =>
-                        value === watch("password") || "Passwords do not match",
-                    })}
-                    className="border text-black border-gray-300 rounded-lg w-full p-3 outline-none"
-                  />
-                  <span
-                    className="absolute text-black right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
-                    onClick={toggleConfirmPasswordVisibility}
-                  >
-                    {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                  </span>
-                </div>
-                {errors.confirmPassword && (
-                  <span className="text-red-600 mt-1">
-                    {errors.confirmPassword.message}
-                  </span>
-                )}
-              </div>
-            </div>
-            {/* Submit Button */}
-            <div className="flex justify-center">
-              <button className="px-10 rounded-lg py-3 bg-blue-600 text-white font-semibold transition-all duration-300">
-                Sign Up
-              </button>
-            </div>
-            <p className="text-center text-black text-[16px] font-medium mt-2">
-              Already have an account ?
-              <Link to="/login" className="ms-1">
-                Login
-              </Link>
-            </p>
-            <p className="text-center text-lg font-bold my-4 text-black">Or</p>
-            <SocialLogin />
-          </form>
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <h2 className="text-2xl xl:text-3xl font-semibold bg-gradient-to-r from-sky-400 from-30% to-sky-600 to-70% inline-block text-transparent bg-clip-text md:-tracking-tighter">
+            <span className="doc">Tanushri</span>
+          </h2>
         </div>
+      </Link>
+    </div>
+    {/* Right: Theme Toggler & Navigation Links */}
+    <div className="lg:flex lg:items-center hidden gap-x-6">
+      <ScrollLink
+        to="about"
+        smooth={true}
+        duration={500}
+        className="cursor-pointer text-lg relative before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[2px] before:bg-sky-500 before:transition-all before:duration-300 hover:before:w-full"
+      >
+        About
+      </ScrollLink>
+      <ScrollLink
+        to="experience"
+        smooth={true}
+        duration={500}
+        className="cursor-pointer text-lg relative before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[2px] before:bg-sky-500 before:transition-all before:duration-300 hover:before:w-full"
+      >
+        Experience
+      </ScrollLink>
+      <ScrollLink
+        to="projects"
+        smooth={true}
+        duration={500}
+        className="cursor-pointer text-lg relative before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[2px] before:bg-sky-500 before:transition-all before:duration-300 hover:before:w-full"
+      >
+        Projects
+      </ScrollLink>
+      <ScrollLink
+        to="skills"
+        smooth={true}
+        duration={500}
+        className="cursor-pointer text-lg relative before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[2px] before:bg-sky-500 before:transition-all before:duration-300 hover:before:w-full"
+      >
+        Skills
+      </ScrollLink>
+      <ScrollLink
+        to="contact"
+        smooth={true}
+        duration={500}
+        className="cursor-pointer text-lg relative before:absolute before:left-0 before:bottom-0 before:w-0 before:h-[2px] before:bg-sky-500 before:transition-all before:duration-300 hover:before:w-full"
+      >
+        Contact
+      </ScrollLink>
+      <button
+        onClick={toggleTheme}
+        className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+      >
+        {theme === "dark" ? (
+          <LuSun className="w-4 h-4" />
+        ) : (
+          <FaMoon className="w-4 h-4" />
+        )}
+      </button>
+    </div>
+
+    {/* Menu Icon for Small Screens */}
+    <div className="lg:hidden">
+      <button onClick={toggleDrawer}>
+        <FiMenu className="text-2xl" />
+      </button>
+    </div>
+
+    {/* Drawer */}
+    <div
+      className={`fixed top-0 left-0 h-full bg-white dark:bg-slate-900 shadow-lg transition-transform transform ${
+        isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+      } w-[250px] z-50 lg:hidden`}
+    >
+      <div className="flex justify-end p-4">
+        <button onClick={toggleDrawer}>
+          <FaXmark className="text-2xl" />
+        </button>
+      </div>
+      <nav className="flex flex-col gap-y-4 p-5 font-semibold text-lg">
+        <ScrollLink
+          to="about"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer"
+          onClick={toggleDrawer}
+        >
+          About
+        </ScrollLink>
+        <ScrollLink
+          to="experience"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer"
+          onClick={toggleDrawer}
+        >
+          Experience
+        </ScrollLink>
+        <ScrollLink
+          to="projects"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer"
+          onClick={toggleDrawer}
+        >
+          Projects
+        </ScrollLink>
+        <ScrollLink
+          to="skills"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer"
+          onClick={toggleDrawer}
+        >
+          Skills
+        </ScrollLink>
+        <ScrollLink
+          to="contact"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer"
+          onClick={toggleDrawer}
+        >
+          Contact
+        </ScrollLink>
+      </nav>
+    </div>
+
+    {isDrawerOpen && (
+      <div
+        className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+        onClick={toggleDrawer}
+      ></div>
+    )}
+  </div>
+</header>
